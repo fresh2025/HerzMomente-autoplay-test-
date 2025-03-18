@@ -7,24 +7,28 @@
 </head>
 <body>
     <audio id="player" autoplay>
-        <source src="https://www.dropbox.com/scl/fi/97x0xuue069m0nxl3xqks/ElevenLabs_2025-03-18T11_58_07_Rachel_pre_s50_sb75_se0_b_m2.mp3?rlkey=odplatdrqr1403xlzridmi39l&st=bgn8m693&raw=1" type="audio/mpeg">
+        <source src="https://www.dl.dropboxusercontent.com/scl/fi/97x0xuue069m0nxl3xqks/ElevenLabs_2025-03-18T11_58_07_Rachel_pre_s50_sb75_se0_b_m2.mp3?rlkey=odplatdrqr1403xlzridmi39l" type="audio/mpeg">
         Dein Browser unterstützt kein Audio.
     </audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var audio = document.getElementById("player");
-            audio.volume = 1.0; // Stellt sicher, dass die Lautstärke normal ist
-            
+            audio.volume = 1.0; // Volle Lautstärke setzen
+
             var playPromise = audio.play();
-            
+
             if (playPromise !== undefined) {
-                playPromise.catch(function(error) {
+                playPromise.catch(function (error) {
                     console.log("Autoplay wurde blockiert. Nutzer muss klicken.");
-                    // Falls Autoplay blockiert wird, zeigen wir einen Button zum Starten des Audios
+                    
+                    // Falls Autoplay blockiert wird, zeige einen Button
                     var button = document.createElement("button");
                     button.innerText = "Klicke hier, um das Audio zu starten";
-                    button.onclick = function() {
+                    button.style.fontSize = "20px";
+                    button.style.padding = "10px 20px";
+                    button.style.margin = "20px";
+                    button.onclick = function () {
                         audio.play();
                         button.remove();
                     };
@@ -35,3 +39,4 @@
     </script>
 </body>
 </html>
+
